@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title=""/>
+
+    <item
+        android:id="@+id/likedFragment"
+        android:icon="@drawable/likeicone"
+        android:title=""/>
+
+
+    <!--    <item-->
+    <!--        android:id="@+id/nowPLayingFragment"-->
+    <!--        android:icon="@drawable/ic_baseline_home_24"-->
+    <!--        android:title="@string/now_playing_movies" />-->
+
+    <!--    <item-->
+    <!--        android:id="@+id/popularFragment"-->
+    <!--        android:icon="@drawable/ic_baseline_home_24"-->
+    <!--        android:title="@string/populer_movies" />-->
+
+    <!--    <item-->
+    <!--        android:id="@+id/upComingFragment"-->
+    <!--        android:icon="@drawable/ic_baseline_home_24"-->
+    <!--        android:title="@string/upcoming" />-->
+
+</menu>

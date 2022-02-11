@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nestedDetail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#040608"
+    android:clipToPadding="false"
+    android:paddingBottom="16dp"
+    tools:context=".ui.detailFragment.DetailFragment">
+
+    <LinearLayout
+        android:id="@+id/linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:contentDescription="@string/image_movie"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <ImageButton
+            android:id="@+id/liked"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/like_circle"
+            android:contentDescription="@string/image_likeMovies"
+            android:scaleType="fitStart"
+            android:src="@drawable/like_icon"
+            app:tint="@color/black" />
+
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="-50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textVData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_lightt"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                tools:text="20/1/25" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="30dp"
+                android:contentDescription="@string/star_image"
+                android:maxWidth="20dp"
+                android:maxHeight="20dp"
+                android:src="@drawable/ic_baseline_star_24" />
+
+            <TextView
+                android:id="@+id/textVAverage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/montserrat_lightt"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                tools:text="8.5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textVTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat_bold"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                tools:text="title" />
+
+            <TextView
+                android:id="@+id/textVOverview"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat_lightt"
+                android:maxWidth="320dp"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                tools:text="overview" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

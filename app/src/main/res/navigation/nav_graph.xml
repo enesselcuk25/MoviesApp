@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/topRatedMoviesFragment"
+        android:name="com.enes.moviesapp.ui.topRatedFragment.TopRatedMoviesFragment"
+        android:label="TopRatedMoviesFragment"
+        tools:layout="@layout/fragment_top_movies" />
+
+    <fragment
+        android:id="@+id/popularFragment"
+        android:name="com.enes.moviesapp.ui.populerFragment.PopularFragment"
+        android:label="PopularFragment"
+        tools:layout="@layout/fragment_populer" />
+    <fragment
+        android:id="@+id/nowPLayingFragment"
+        android:name="com.enes.moviesapp.ui.nowPlayingFragment.NowPLayingFragment"
+        android:label="fragment_now_p_laying"
+        tools:layout="@layout/fragment_now_p_laying" />
+    <fragment
+        android:id="@+id/upComingFragment"
+        android:name="com.enes.moviesapp.ui.upComingFragment.UpComingFragment"
+        android:label="fragment_up_coming"
+        tools:layout="@layout/fragment_up_coming" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.enes.moviesapp.ui.homeFragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.enes.moviesapp.ui.detailFragment.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/likedFragment"
+        android:name="com.enes.moviesapp.ui.likedFragment.LikedFragment"
+        android:label="fragment_liked"
+        tools:layout="@layout/fragment_liked" />
+
+
+</navigation>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MoviesApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_movies">Home Movies</string>
+    <string name="now_playing_movies">Now Playing Movies</string>
+    <string name="populer_movies">Popular Movies</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="image_likeMovies">likeMovies</string>
+    <string name="star_image">star_image</string>
+    <string name="image_movie">image_movie</string>
+    <string name="likedimage">likedImage</string>
+    <string name="liked_movies">Liked Movies</string>
+    <string name="item_all_movies">item all movies</string>
+
+
+</resources>

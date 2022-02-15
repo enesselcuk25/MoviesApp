@@ -1,4 +1,4 @@
-package com.enes.moviesapp.ui.detailFragment
+package com.enes.moviesapp.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.enes.moviesapp.ui.upComingFragment
+package com.enes.moviesapp.ui.upComing
 
 import android.os.Bundle
 import androidx.core.os.bundleOf

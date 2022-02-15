@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
@@ -28,6 +29,7 @@ abstract class BaseFragment<vBinding : ViewBinding> : Fragment() {
         rcView()
         setObsever()
         setViewpager()
+        splashCreated()
     }
 
     override fun onDestroyView() {
@@ -38,6 +40,7 @@ abstract class BaseFragment<vBinding : ViewBinding> : Fragment() {
     open fun rcView() {}
     open fun setObsever() {}
     open fun setViewpager() {}
+    open fun splashCreated() {}
 
 
 

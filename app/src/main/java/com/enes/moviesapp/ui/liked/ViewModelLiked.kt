@@ -1,4 +1,4 @@
-package com.enes.moviesapp.ui.likedFragment
+package com.enes.moviesapp.ui.liked
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

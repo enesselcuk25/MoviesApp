@@ -16,7 +16,7 @@
         android:background="@color/black"
         android:clipToPadding="false"
         android:paddingBottom="16dp"
-        tools:context=".ui.detailFragment.DetailFragment">
+        tools:context=".ui.detail.DetailFragment">
 
         <LinearLayout
             android:id="@+id/linearlayout"

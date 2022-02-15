@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#040608"
     android:orientation="vertical"
-    tools:context=".ui.upComingFragment.UpComingFragment">
+    tools:context=".ui.upComing.UpComingFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcView"

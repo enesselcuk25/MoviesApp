@@ -1,4 +1,4 @@
-package com.enes.moviesapp.ui.likedFragment
+package com.enes.moviesapp.ui.liked
 
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels

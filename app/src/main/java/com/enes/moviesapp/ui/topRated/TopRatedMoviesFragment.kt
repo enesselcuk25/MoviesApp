@@ -1,4 +1,4 @@
-package com.enes.moviesapp.ui.topRatedFragment
+package com.enes.moviesapp.ui.topRated
 
 import android.os.Bundle
 import androidx.core.os.bundleOf

@@ -1,38 +1,33 @@
-package com.enes.moviesapp.ui.upComingFragment
+package com.enes.moviesapp.ui.popular
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
-import com.enes.moviesapp.base.BaseViewModel
+import androidx.lifecycle.*
 import com.enes.moviesapp.data.remote.model.MoviesList
 import com.enes.moviesapp.repository.MoviesRepository
+import com.enes.moviesapp.base.BaseViewModel
 import com.enes.moviesapp.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
 @HiltViewModel
+class ViewModelPopular @Inject constructor (private val moviesRepository:MoviesRepository):
+    BaseViewModel() {
 
-class ViewModelUpComing @Inject constructor
-    (
-    private val moviesRepository: MoviesRepository
-) : BaseViewModel() {
 
     init {
-        getMoviesList()
+        moviesList()
     }
 
-    private var mutableMoviesList: MutableLiveData<List<MoviesList>> = MutableLiveData()
-    val liveMoviesList: LiveData<List<MoviesList>>
-        get() = mutableMoviesList
+    private val mutableMovieList: MutableLiveData<List<MoviesList>> = MutableLiveData()
+    val liveMovieList: LiveData<List<MoviesList>>
+        get() = mutableMovieList
 
     var loading = MutableLiveData(false)
-    var error = MutableLiveData("")
+   private var error = MutableLiveData("")
 
-    private fun getMoviesList() {
+    private fun moviesList() {
         viewModelScope.launch {
-            val result = moviesRepository.getUpcomingMovieList()
+            val result = moviesRepository.getPopularMovieList()
             loading.value = true
             when (result) {
                 is Resource.Success -> {
@@ -50,7 +45,7 @@ class ViewModelUpComing @Inject constructor
                         }
                         loading.value = false
                         error.value = ""
-                        mutableMoviesList.postValue(moviesList)
+                        mutableMovieList.postValue(moviesList)
                     }
                 }
                 is Resource.Error -> {

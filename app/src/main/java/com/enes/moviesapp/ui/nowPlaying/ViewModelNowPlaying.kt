@@ -1,4 +1,4 @@
-package com.enes.moviesapp.ui.nowPlayingFragment
+package com.enes.moviesapp.ui.nowPlaying
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -3,44 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/topRatedMoviesFragment"
-        android:name="com.enes.moviesapp.ui.topRatedFragment.TopRatedMoviesFragment"
+        android:name="com.enes.moviesapp.ui.topRated.TopRatedMoviesFragment"
         android:label="TopRatedMoviesFragment"
         tools:layout="@layout/fragment_top_movies" />
 
     <fragment
         android:id="@+id/popularFragment"
-        android:name="com.enes.moviesapp.ui.populerFragment.PopularFragment"
+        android:name="com.enes.moviesapp.ui.popular.PopularFragment"
         android:label="PopularFragment"
         tools:layout="@layout/fragment_populer" />
     <fragment
         android:id="@+id/nowPLayingFragment"
-        android:name="com.enes.moviesapp.ui.nowPlayingFragment.NowPLayingFragment"
+        android:name="com.enes.moviesapp.ui.nowPlaying.NowPLayingFragment"
         android:label="fragment_now_p_laying"
         tools:layout="@layout/fragment_now_p_laying" />
     <fragment
         android:id="@+id/upComingFragment"
-        android:name="com.enes.moviesapp.ui.upComingFragment.UpComingFragment"
+        android:name="com.enes.moviesapp.ui.upComing.UpComingFragment"
         android:label="fragment_up_coming"
         tools:layout="@layout/fragment_up_coming" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.enes.moviesapp.ui.homeFragment.HomeFragment"
+        android:name="com.enes.moviesapp.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.enes.moviesapp.ui.detailFragment.DetailFragment"
+        android:name="com.enes.moviesapp.ui.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
     <fragment
         android:id="@+id/likedFragment"
-        android:name="com.enes.moviesapp.ui.likedFragment.LikedFragment"
+        android:name="com.enes.moviesapp.ui.liked.LikedFragment"
         android:label="fragment_liked"
         tools:layout="@layout/fragment_liked" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.enes.moviesapp.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
 
 </navigation>

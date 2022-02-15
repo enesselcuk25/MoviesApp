@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/nav_image"
-        tools:context=".ui.liked.LikedFragment">
+        android:background="@color/black"
+        tools:context=".ui.splash.SplashFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcView"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/item_liked_view" />
-
+            android:layout_gravity="center"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/lottie" />
     </FrameLayout>
 </layout>

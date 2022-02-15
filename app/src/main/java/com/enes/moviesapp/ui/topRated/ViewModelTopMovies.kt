@@ -1,4 +1,4 @@
-package com.enes.moviesapp.ui.topRatedFragment
+package com.enes.moviesapp.ui.topRated
 
 import androidx.lifecycle.*
 import com.enes.moviesapp.data.remote.model.MoviesList

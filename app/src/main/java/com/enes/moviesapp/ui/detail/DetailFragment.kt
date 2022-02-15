@@ -1,4 +1,4 @@
-package com.enes.moviesapp.ui.detailFragment
+package com.enes.moviesapp.ui.detail
 
 import android.widget.Toast
 import androidx.fragment.app.viewModels

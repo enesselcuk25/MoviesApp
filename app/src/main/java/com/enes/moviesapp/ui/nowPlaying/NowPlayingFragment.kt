@@ -1,4 +1,4 @@
-package com.enes.moviesapp.ui.populerFragment
+package com.enes.moviesapp.ui.nowPlaying
 
 import android.os.Bundle
 import androidx.core.os.bundleOf
@@ -8,20 +8,21 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.enes.moviesapp.R
 import com.enes.moviesapp.adapter.recyclerAdapter.RcAllMoviesAdapter
 import com.enes.moviesapp.base.BaseFragment
-import com.enes.moviesapp.databinding.FragmentPopulerBinding
+import com.enes.moviesapp.databinding.FragmentNowPLayingBinding
 import com.enes.moviesapp.ui.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
-class PopularFragment : BaseFragment<FragmentPopulerBinding>() {
+class NowPLayingFragment : BaseFragment<FragmentNowPLayingBinding>() {
+    override fun getViewBinding() = FragmentNowPLayingBinding.inflate(layoutInflater)
 
-    override fun getViewBinding() = FragmentPopulerBinding.inflate(layoutInflater)
-
-    private val viewModel: ViewModelPopular by viewModels()
+    private val viewModel: ViewModelNowPlaying by viewModels()
     private lateinit var rcAdapter: RcAllMoviesAdapter
 
     override fun rcView() {
         rcAdapter = RcAllMoviesAdapter()
+
         rcAdapter.onClickItem { movie, view ->
             val bundle = bundleOf("moviesId" to movie.id)
             view.findNavController().navigate(R.id.detailFragment, bundle)
@@ -33,7 +34,7 @@ class PopularFragment : BaseFragment<FragmentPopulerBinding>() {
     }
 
     override fun setObsever() {
-        viewModel.liveMovieList.observe(viewLifecycleOwner, { moviesList ->
+        viewModel.liveMovieList.observe(viewLifecycleOwner,  { moviesList ->
             rcAdapter.moviesList = moviesList
         })
         viewModel.loading.observe(viewLifecycleOwner,{
@@ -42,11 +43,12 @@ class PopularFragment : BaseFragment<FragmentPopulerBinding>() {
     }
 
     companion object {
+        @JvmStatic
         fun newInstance() =
-            PopularFragment().apply {
-                arguments = Bundle().apply { }
+            NowPLayingFragment().apply {
+                arguments = Bundle().apply {
+                }
             }
     }
-
 
 }

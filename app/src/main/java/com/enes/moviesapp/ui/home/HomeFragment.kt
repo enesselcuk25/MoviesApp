@@ -1,4 +1,4 @@
-package com.enes.moviesapp.ui.homeFragment
+package com.enes.moviesapp.ui.home
 
 import android.view.View
 import androidx.core.os.bundleOf
@@ -11,11 +11,11 @@ import com.enes.moviesapp.adapter.viewPagerAdapter.RcViewPager
 import com.enes.moviesapp.adapter.viewPagerAdapter.SlideViewPagerAdapter
 import com.enes.moviesapp.base.BaseFragment
 import com.enes.moviesapp.databinding.FragmentHomeBinding
-import com.enes.moviesapp.ui.nowPlayingFragment.NowPLayingFragment
-import com.enes.moviesapp.ui.populerFragment.PopularFragment
-import com.enes.moviesapp.ui.populerFragment.ViewModelPopular
-import com.enes.moviesapp.ui.topRatedFragment.TopRatedMoviesFragment
-import com.enes.moviesapp.ui.upComingFragment.UpComingFragment
+import com.enes.moviesapp.ui.nowPlaying.NowPLayingFragment
+import com.enes.moviesapp.ui.popular.PopularFragment
+import com.enes.moviesapp.ui.popular.ViewModelPopular
+import com.enes.moviesapp.ui.topRated.TopRatedMoviesFragment
+import com.enes.moviesapp.ui.upComing.UpComingFragment
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 

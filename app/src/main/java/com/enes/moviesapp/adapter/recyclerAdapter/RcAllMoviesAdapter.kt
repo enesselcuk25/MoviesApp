@@ -3,19 +3,16 @@ package com.enes.moviesapp.adapter.recyclerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.enes.moviesapp.R
 import com.enes.moviesapp.data.remote.model.MoviesList
-import java.util.*
-import kotlin.collections.ArrayList
+
 
 class RcAllMoviesAdapter :
-    RecyclerView.Adapter<ViewHolder>(),Filterable {
+    RecyclerView.Adapter<ViewHolder>() {
 
-    var moviesArrayList = ArrayList<MoviesList>()
+
 
     var moviesList: List<MoviesList> = arrayListOf()
         set(value) {
@@ -23,9 +20,6 @@ class RcAllMoviesAdapter :
             notifyDataSetChanged()
         }
 
-    init {
-        moviesList = moviesArrayList
-    }
 
     private lateinit var moviesClick: (MoviesList, View) -> Unit
     fun onClickItem(onClick: (MoviesList, View) -> Unit) {
@@ -52,32 +46,4 @@ class RcAllMoviesAdapter :
         return moviesList.size
     }
 
-    override fun getFilter(): Filter {
-        return object :Filter() {
-            override fun performFiltering(p0: CharSequence?): FilterResults {
-                val charSearch = p0.toString()
-                moviesList = if(charSearch.isNotEmpty()){
-                    moviesArrayList
-                }else{
-                    val resultList : MutableList<MoviesList> = mutableListOf()
-                    for (row in moviesList){
-                        if(row.title.lowercase(Locale.ROOT).contains(charSearch.lowercase(Locale.ROOT))){
-                            resultList.add(row)
-                        }
-                    }
-                    resultList
-                }
-                val filterResults = FilterResults()
-                    filterResults.values = moviesList
-                    return filterResults
-
-            }
-
-            override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
-               moviesList = p1?.values as MutableList<MoviesList>
-                notifyDataSetChanged()
-            }
-
-        }
-    }
 }

@@ -4,28 +4,12 @@
 
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title=""/>
+        android:icon="@drawable/bottom_navigation_home_selection"
+        android:title="" />
 
     <item
         android:id="@+id/likedFragment"
-        android:icon="@drawable/likeicone"
-        android:title=""/>
-
-
-    <!--    <item-->
-    <!--        android:id="@+id/nowPLayingFragment"-->
-    <!--        android:icon="@drawable/ic_baseline_home_24"-->
-    <!--        android:title="@string/now_playing_movies" />-->
-
-    <!--    <item-->
-    <!--        android:id="@+id/popularFragment"-->
-    <!--        android:icon="@drawable/ic_baseline_home_24"-->
-    <!--        android:title="@string/populer_movies" />-->
-
-    <!--    <item-->
-    <!--        android:id="@+id/upComingFragment"-->
-    <!--        android:icon="@drawable/ic_baseline_home_24"-->
-    <!--        android:title="@string/upcoming" />-->
+        android:icon="@drawable/bottom_navigation_favorite_selection"
+        android:title="" />
 
 </menu>

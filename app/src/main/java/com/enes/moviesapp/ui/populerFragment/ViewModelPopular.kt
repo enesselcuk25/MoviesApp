@@ -22,9 +22,13 @@ class ViewModelPopular @Inject constructor (private val moviesRepository:MoviesR
     val liveMovieList: LiveData<List<MoviesList>>
         get() = mutableMovieList
 
+    var loading = MutableLiveData(false)
+   private var error = MutableLiveData("")
+
     private fun moviesList() {
         viewModelScope.launch {
             val result = moviesRepository.getPopularMovieList()
+            loading.value = true
             when (result) {
                 is Resource.Success -> {
                     result.data?.results?.let {
@@ -39,15 +43,16 @@ class ViewModelPopular @Inject constructor (private val moviesRepository:MoviesR
                                 data.backdrop_path
                             )
                         }
+                        loading.value = false
+                        error.value = ""
                         mutableMovieList.postValue(moviesList)
                     }
                 }
                 is Resource.Error -> {
-
+                    loading.value = false
+                    error.value = result.message
                 }
-
             }
-
         }
     }
 }

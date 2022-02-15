@@ -4,7 +4,6 @@ import com.enes.moviesapp.data.local.entity.MovieFavoriteEntity
 import com.enes.moviesapp.data.local.service.MoviesDao
 import com.enes.moviesapp.data.remote.apiService.MoviesApi
 import com.enes.moviesapp.data.remote.response.movies.AllMoviesResponse
-import com.enes.moviesapp.data.remote.response.movies.ResultDetails
 import com.enes.moviesapp.data.remote.response.moviesDetail.MoviesDetail
 import com.enes.moviesapp.util.Resource
 import dagger.hilt.android.scopes.ActivityScoped
@@ -77,7 +76,7 @@ class MoviesRepository @Inject constructor(
         return dao.getAllMoviesFavorite()
     }
 
-    suspend fun deleteFavori(id:Int?){
+    suspend fun deleteFavorite(id:Int?){
         return dao.deleteMovies(id)
     }
 //

@@ -12,6 +12,10 @@
     <string name="likedimage">likedImage</string>
     <string name="liked_movies">Liked Movies</string>
     <string name="item_all_movies">item all movies</string>
+    <string name="home">Home</string>
+    <string name="liked">Liked</string>
+    <string name="pagerslidemovies">pagerSlideMovies</string>
+    <string name="search">Search</string>
 
 
 </resources>

@@ -6,7 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.enes.moviesapp.data.local.entity.MovieFavoriteEntity
-import com.enes.moviesapp.data.remote.response.movies.ResultDetails
 
 
 @Database(entities =[MovieFavoriteEntity::class], version = 1, exportSchema = false )

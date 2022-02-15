@@ -3,9 +3,9 @@ package com.enes.moviesapp.ui.nowPlayingFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.enes.moviesapp.base.BaseViewModel
 import com.enes.moviesapp.data.remote.model.MoviesList
 import com.enes.moviesapp.repository.MoviesRepository
-import com.enes.moviesapp.base.BaseViewModel
 import com.enes.moviesapp.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -23,9 +23,13 @@ class ViewModelNowPlaying @Inject constructor(private val moviesRepository: Movi
     val liveMovieList: LiveData<List<MoviesList>>
         get() = mutableMovieList
 
+    var loading = MutableLiveData(false)
+    private var error = MutableLiveData("")
+
     private fun moviesList() {
         viewModelScope.launch {
             val result = moviesRepository.getNowPlayMovieList()
+            loading.value = true
             when (result) {
                 is Resource.Success -> {
                     result.data?.results?.let {
@@ -40,16 +44,16 @@ class ViewModelNowPlaying @Inject constructor(private val moviesRepository: Movi
                                 data.backdrop_path
                             )
                         }
+                        loading.value = false
+                        error.value = ""
                         mutableMovieList.postValue(moviesList)
                     }
                 }
                 is Resource.Error -> {
-
+                    loading.value = false
+                    error.value = result.message
                 }
-
             }
-
         }
     }
-
 }

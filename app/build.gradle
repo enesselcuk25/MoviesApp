@@ -6,8 +6,6 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
-
-
 }
 
 android {
@@ -84,6 +82,7 @@ android {
     }
     buildFeatures{
         viewBinding  true
+        dataBinding true
     }
 }
 
@@ -99,7 +98,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Architectural Components
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
 
     // Room
     implementation "androidx.room:room-runtime:2.4.1"
@@ -110,9 +109,9 @@ dependencies {
 
 
     // Coroutine Lifecycle Scopes
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -123,8 +122,8 @@ dependencies {
 
 
     // Navigation Components
-    implementation "androidx.navigation:navigation-fragment-ktx:2.4.0"
-    implementation "androidx.navigation:navigation-ui-ktx:2.4.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
+    implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
 
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
@@ -145,6 +144,8 @@ dependencies {
     // Timber
     implementation('com.jakewharton.timber:timber:4.7.1')
 
+    // View Pager Dots Indicator
+    implementation 'com.tbuonomo:dotsindicator:4.2'
 }
 kapt {
     correctErrorTypes = true

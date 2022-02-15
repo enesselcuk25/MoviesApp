@@ -9,6 +9,7 @@ import com.enes.moviesapp.R
 import com.enes.moviesapp.adapter.recyclerAdapter.RcAllMoviesAdapter
 import com.enes.moviesapp.base.BaseFragment
 import com.enes.moviesapp.databinding.FragmentTopMoviesBinding
+import com.enes.moviesapp.ui.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +21,7 @@ class TopRatedMoviesFragment : BaseFragment<FragmentTopMoviesBinding>() {
     private val moviesViewModel: ViewModelTopMovies by viewModels()
 
     override fun rcView() {
-        rcAdapter = RcAllMoviesAdapter(requireContext())
+        rcAdapter = RcAllMoviesAdapter()
         rcAdapter.onClickItem { movie, view ->
             val bundle = bundleOf("moviesId" to movie.id)
             view.findNavController().navigate(R.id.detailFragment, bundle)
@@ -36,6 +37,10 @@ class TopRatedMoviesFragment : BaseFragment<FragmentTopMoviesBinding>() {
         moviesViewModel.liveMoviesList.observe(viewLifecycleOwner, { moviesList ->
             rcAdapter.moviesList = moviesList
         })
+
+        moviesViewModel.loading.observe(viewLifecycleOwner, {
+            MainActivity.mainActivity.show(it)
+        })
     }
 
     companion object {
@@ -45,6 +50,4 @@ class TopRatedMoviesFragment : BaseFragment<FragmentTopMoviesBinding>() {
                 }
             }
     }
-
-
 }

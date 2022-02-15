@@ -20,10 +20,13 @@ class ViewModelDetail @Inject constructor(private val moviesRepository: MoviesRe
     val liveMovies:LiveData<MovieDetailList>
           get()=moviesMutableLiveData
 
+    var loading = MutableLiveData(false)
+    private var error = MutableLiveData("")
+
     fun fetchMoviesData(id:Int?){
         viewModelScope.launch {
             val result = moviesRepository.getMoviesInfo(id)
-
+            loading.value = true
             when(result){
                 is Resource.Success -> {
                     result.data?.let { movieList ->
@@ -38,9 +41,12 @@ class ViewModelDetail @Inject constructor(private val moviesRepository: MoviesRe
                             movieList.release_date
                         )
                     }
+                    loading.value = false
+                    error.value = ""
                 }
                 is Resource.Error -> {
-
+                    loading.value = false
+                    error.value = result.message
                 }
             }
         }
@@ -70,7 +76,7 @@ class ViewModelDetail @Inject constructor(private val moviesRepository: MoviesRe
 
     fun deleteFavori(id:Int?) {
         viewModelScope.launch {
-            moviesRepository.deleteFavori(id)
+            moviesRepository.deleteFavorite(id)
         }
     }
 

@@ -2,11 +2,10 @@ package com.enes.moviesapp.ui.detailFragment
 
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import com.bumptech.glide.Glide
-import com.enes.moviesapp.BuildConfig.IMAGE_BASE
 import com.enes.moviesapp.R
 import com.enes.moviesapp.base.BaseFragment
 import com.enes.moviesapp.databinding.FragmentDetailBinding
+import com.enes.moviesapp.ui.MainActivity.Companion.mainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -26,9 +25,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 try {
                     this.isLiked = isLiked
                     if (isLiked) {
-                        binding.liked.setImageResource(R.drawable.liked_icon)
+                        binding.liked.setImageResource(R.drawable.ic_baseline_favorite_dark24)
                     } else {
-                        binding.liked.setImageResource(R.drawable.like_icon)
+                        binding.liked.setImageResource(R.drawable.ic_baseline_favorite_24)
                     }
                 } catch (ex: Exception) {
                     Toast.makeText(requireContext(), ex.toString(), Toast.LENGTH_LONG).show()
@@ -38,32 +37,26 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
             binding.liked.setOnClickListener {
                 isLiked = if (isLiked) {
-                    binding.liked.setImageResource(R.drawable.like_icon)
+                    binding.liked.setImageResource(R.drawable.ic_baseline_favorite_24)
                     viewModelDetail.deleteFavori(arguments)
                     false
                 } else {
                     viewModelDetail.addMoviesFavorite()
-                    binding.liked.setImageResource(R.drawable.liked_icon)
+                    binding.liked.setImageResource(R.drawable.ic_baseline_favorite_dark24)
                     true
                 }
             }
         }
+
+        viewModelDetail.loading.observe(viewLifecycleOwner, {
+            mainActivity.show(it)
+        })
     }
 
     override fun setObsever() {
         viewModelDetail.liveMovies.observe(viewLifecycleOwner, { movieList ->
             movieList?.let {
-                binding.apply {
-                    Glide.with(requireActivity())
-                        .load(IMAGE_BASE + it.poster_path)
-                        .error(R.drawable.ic_launcher_background)
-                        .into(this.imageView)
-
-                    textVAverage.text = it.vote_average.toString()
-                    textVData.text = it.release_date
-                    textVOverview.text = it.overview
-                    textVTitle.text = it.title
-                }
+                binding.detailMovie = movieList
             }
         })
     }

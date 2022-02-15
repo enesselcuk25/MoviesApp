@@ -1,14 +1,19 @@
 package com.enes.moviesapp.ui.homeFragment
 
-import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.enes.moviesapp.R
 import com.enes.moviesapp.adapter.viewPagerAdapter.RcViewPager
+import com.enes.moviesapp.adapter.viewPagerAdapter.SlideViewPagerAdapter
 import com.enes.moviesapp.base.BaseFragment
 import com.enes.moviesapp.databinding.FragmentHomeBinding
 import com.enes.moviesapp.ui.nowPlayingFragment.NowPLayingFragment
 import com.enes.moviesapp.ui.populerFragment.PopularFragment
+import com.enes.moviesapp.ui.populerFragment.ViewModelPopular
 import com.enes.moviesapp.ui.topRatedFragment.TopRatedMoviesFragment
 import com.enes.moviesapp.ui.upComingFragment.UpComingFragment
 import com.google.android.material.tabs.TabLayoutMediator
@@ -18,6 +23,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun getViewBinding() = FragmentHomeBinding.inflate(layoutInflater)
+    private val popularViewModel: ViewModelPopular by viewModels()
+    private lateinit var rcPagerAdapter: SlideViewPagerAdapter
+
+
     override fun setViewpager() {
         val homeFrag = TopRatedMoviesFragment.newInstance()
         val popularFrag = PopularFragment.newInstance()
@@ -58,14 +67,31 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
 
+    override fun rcView() {
 
-    companion object {
-        fun newInstance() =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
+        rcPagerAdapter = SlideViewPagerAdapter(arrayListOf())
+
+
+        rcPagerAdapter.onClick { movieList, view ->
+            val bundle = bundleOf("moviesId" to movieList.id)
+            view.findNavController().navigate(R.id.detailFragment, bundle)
+        }
+
+        binding.viewPagerSlide.adapter = rcPagerAdapter
+        binding.wormDotsIndicator.setViewPager(binding.viewPagerSlide)
     }
 
+    override fun setObsever() {
+        popularViewModel.liveMovieList.observe(viewLifecycleOwner, { movieList ->
+            val movieRandom = (movieList.indices).random()
+            var addRandom = 0
+            for (i in 0..movieRandom) {
+                if (i <= 5) {
+                    addRandom = i
+                }
+            }
+            rcPagerAdapter.updateMovieList(movieList.take(addRandom))
+        })
+    }
 
 }

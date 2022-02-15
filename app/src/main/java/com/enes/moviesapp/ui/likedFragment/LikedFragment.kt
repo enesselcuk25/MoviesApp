@@ -10,11 +10,6 @@ import com.enes.moviesapp.base.BaseFragment
 import com.enes.moviesapp.databinding.FragmentLikedBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-/*
-        düzeltilemsi gerekn kodlar
-        - like image tıklayınca renk değişimi olmuyor
-        -  beğendiği filimler aniden gelmiyor liked sayfasına
- */
 @AndroidEntryPoint
 class LikedFragment : BaseFragment<FragmentLikedBinding>() {
 
@@ -23,13 +18,12 @@ class LikedFragment : BaseFragment<FragmentLikedBinding>() {
     private val viewModel: ViewModelLiked by viewModels()
 
     override fun rcView() {
-        rcAdapter = RecyLikedAdapter(requireContext())
+        rcAdapter = RecyLikedAdapter()
         rcAdapter.onCLik { movieFavoriteEntity, view ->
             val bundle = bundleOf("moviesId" to movieFavoriteEntity.id)
             view.findNavController().navigate(R.id.detailFragment, bundle)
 
         }
-
         binding.rcView.apply {
             this.adapter = rcAdapter
             layoutManager = LinearLayoutManager(requireContext())
@@ -37,8 +31,38 @@ class LikedFragment : BaseFragment<FragmentLikedBinding>() {
     }
 
     override fun setObsever() {
-        viewModel.moviesLiveData.observe(viewLifecycleOwner,  {
+        viewModel.moviesLiveData.observe(viewLifecycleOwner, {
             rcAdapter.movieList = it
         })
     }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.getFavorite()
+    }
+
+//    private fun swipedDelete() {
+//        object : ItemTouchHelper.SimpleCallback(0,
+//            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+//        ){
+//            override fun onMove(
+//                recyclerView: RecyclerView,
+//                viewHolder: RecyclerView.ViewHolder,
+//                target: RecyclerView.ViewHolder
+//            ): Boolean {
+//                return false
+//            }
+//
+//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+//
+//                rcAdapter.getMovieAt(viewHolder.adapterPosition)?.let { viewModel.deleteMovie() }
+//
+//               }
+//            }
+//
+//        }
+//
+//    }
+
+
 }

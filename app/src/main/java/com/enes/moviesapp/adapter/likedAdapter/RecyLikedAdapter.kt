@@ -1,21 +1,15 @@
 package com.enes.moviesapp.adapter.likedAdapter
 
-import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.enes.moviesapp.R
 import com.enes.moviesapp.data.local.entity.MovieFavoriteEntity
-import com.enes.moviesapp.databinding.ItemLikedViewBinding
 
-class RecyLikedAdapter(private val context: Context): RecyclerView.Adapter<LikedHolder>() {
-
-
-//   private var movielist = mutableListOf<MovieFavoriteEntity>()
-//    fun setMovieList(newMoviesList: List<MovieFavoriteEntity>){
-//        this.movielist = newMoviesList.toMutableList()
-//        notifyDataSetChanged()
-//    }
+class RecyLikedAdapter: RecyclerView.Adapter<LikedHolder>() {
 
     var movieList : List<MovieFavoriteEntity> = arrayListOf()
         set(value) {
@@ -29,17 +23,15 @@ class RecyLikedAdapter(private val context: Context): RecyclerView.Adapter<Liked
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LikedHolder {
-        return LikedHolder(ItemLikedViewBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        return LikedHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context),
+            R.layout.item_liked_view,parent,false))
     }
 
     override fun onBindViewHolder(holder: LikedHolder, position: Int) {
         val moviePosition = movieList[position]
-        holder.likedBind(moviePosition,context,movieOnClick)
+        holder.likedBind(moviePosition,movieOnClick)
     }
 
     override fun getItemCount(): Int = movieList.size
-
-
-
 
 }

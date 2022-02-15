@@ -1,10 +1,11 @@
 package com.enes.moviesapp.ui
 
+import android.annotation.SuppressLint
+import android.content.res.ColorStateList
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.enes.moviesapp.R
 import com.enes.moviesapp.databinding.ActivityMainBinding
@@ -18,64 +19,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // setPager()
+        mainActivity = this
         setBottomNav()
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun setBottomNav() {
-        val navController = findNavController(R.id.fragment)
-
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.homeFragment,R.id.likedFragment
-                )
-        )
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
+        val navController = navHostFragment.navController
         binding.navView.setupWithNavController(navController)
+
+        binding.navView.itemRippleColor =
+            ColorStateList.valueOf(R.color.white)
+        binding.navView.itemIconTintList = null
+
     }
 
-    /*
-    private fun setPager(){
-        val homeFrag = HomeMoviesFragment.newInstance()
-        val popularFrag = PopularFragment.newInstance()
-        val upComingFrag = UpComingFragment.newInstance()
-        val nowPlayFrag = NowPLayingFragment.newInstance()
-
-        val fragmentArray :ArrayList<Fragment> = arrayListOf()
-        fragmentArray.add(homeFrag)
-        fragmentArray.add(popularFrag)
-        fragmentArray.add(upComingFrag)
-        fragmentArray.add(nowPlayFrag)
-
-       val adapter =  RcViewPager(this,fragmentArray)
-
-        binding.apply {
-            pager.adapter = adapter
-            TabLayoutMediator(tabLayout, pager) { tab, position ->
-
-                when(position){
-                    0 -> {
-                        tab.text = "Top Rated "
-                    }
-                    1 -> {
-                        tab.text = "popular"
-                    }
-                    2 -> {
-                        tab.text = "UpComing"
-                    }
-                    3 -> {
-                        tab.text = "Now Playing"
-                    }
-                }
-
-                pager.layoutDirection = ViewPager2.LAYOUT_DIRECTION_LTR
-                tabLayout.layoutDirection = View.LAYOUT_DIRECTION_LTR
-
-            }.attach()
-        }
+    companion object {
+        lateinit var mainActivity: MainActivity
     }
 
-     */
-
+    fun show(visibility:Boolean){
+        binding.progresBar.visibility = if(visibility) View.VISIBLE else View.GONE
+    }
 }

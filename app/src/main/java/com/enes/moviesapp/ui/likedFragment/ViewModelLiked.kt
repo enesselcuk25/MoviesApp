@@ -23,7 +23,7 @@ class ViewModelLiked @Inject constructor(private val moviesRepository: MoviesRep
         getFavorite()
     }
 
-    private fun getFavorite() {
+     fun getFavorite() {
         viewModelScope.launch {
             val data = moviesRepository.getLikedMoviesInfo()
 
@@ -44,9 +44,7 @@ class ViewModelLiked @Inject constructor(private val moviesRepository: MoviesRep
                 }
                 moviesMutableLiveData.postValue(listMovies)
             }
-
         }
     }
-
 
 }

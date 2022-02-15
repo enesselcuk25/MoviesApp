@@ -25,7 +25,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 try {
                     this.isLiked = isLiked
                     if (isLiked) {
-                        binding.liked.setImageResource(R.drawable.ic_baseline_favorite_dark24)
+                        binding.liked.setImageResource(R.drawable.likediconeyellow)
                     } else {
                         binding.liked.setImageResource(R.drawable.ic_baseline_favorite_24)
                     }
@@ -42,7 +42,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                     false
                 } else {
                     viewModelDetail.addMoviesFavorite()
-                    binding.liked.setImageResource(R.drawable.ic_baseline_favorite_dark24)
+                    binding.liked.setImageResource(R.drawable.likediconeyellow)
                     true
                 }
             }

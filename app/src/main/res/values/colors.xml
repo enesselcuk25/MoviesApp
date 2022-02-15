@@ -23,6 +23,10 @@
     <color name="Black_0">#00000000</color>
 
 
+
+    <color name="yellow">#ffeb3b</color>
+
+
     <color name="material_color_deep_purple_50">#ede7f6</color>
     <color name="material_color_deep_purple_100">#d1c4e9</color>
     <color name="material_color_deep_purple_200">#b39ddb</color>

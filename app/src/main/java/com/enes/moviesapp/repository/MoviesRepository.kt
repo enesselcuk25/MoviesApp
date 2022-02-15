@@ -79,10 +79,7 @@ class MoviesRepository @Inject constructor(
     suspend fun deleteFavorite(id:Int?){
         return dao.deleteMovies(id)
     }
-//
-//    suspend fun getMoviesFavoriteId(id:Int): ResultDetails {
-//        return dao.getMoviesFavoriteId(id)
-//    }
+
 
 
 

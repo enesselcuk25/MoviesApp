@@ -33,6 +33,4 @@ object ImageBindingAdapter {
             .fitCenter()
             .into(this)
     }
-
-
 }

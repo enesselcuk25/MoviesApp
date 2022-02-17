@@ -33,5 +33,4 @@ class RecyLikedAdapter: RecyclerView.Adapter<LikedHolder>() {
     }
 
     override fun getItemCount(): Int = movieList.size
-
 }

@@ -12,8 +12,6 @@ import com.enes.moviesapp.data.remote.model.MoviesList
 class RcAllMoviesAdapter :
     RecyclerView.Adapter<ViewHolder>() {
 
-
-
     var moviesList: List<MoviesList> = arrayListOf()
         set(value) {
             field = value
@@ -37,8 +35,6 @@ class RcAllMoviesAdapter :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val moviesList = moviesList[position]
         holder.bind(moviesList, moviesClick)
-
-
 
     }
 

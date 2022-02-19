@@ -45,8 +45,6 @@ android {
             jniDebuggable false
             renderscriptDebuggable false
         }
-
-
     }
     flavorDimensions 'api'
 

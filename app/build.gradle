@@ -29,7 +29,7 @@ android {
 
     buildTypes {
 
-        debug{
+        debug {
             minifyEnabled false
 
             debuggable true
@@ -46,29 +46,30 @@ android {
             renderscriptDebuggable false
         }
 
-        flavorDimensions 'api'
 
-        productFlavors{
-            dev {
-                dimension 'api'
-                buildConfigField('String','BASE_URL','"https://api.themoviedb.org/"')
-                buildConfigField('String','IMAGE_BASE_W500','"https://image.tmdb.org/t/p/w500/"')
-                buildConfigField('String','IMAGE_BASE','"https://image.tmdb.org/t/p/w185_and_h278_bestv2/"')
-                buildConfigField('String','API_KEY','"7d779c1e7a202d2aa4e20eb90a67548e"')
-            }
-            pilot {
-                dimension  'api'
-                buildConfigField('String','IMAGE_BASE_W500','"https://image.tmdb.org/t/p/w500/"')
-                buildConfigField('String','IMAGE_BASE','"https://image.tmdb.org/t/p/w185_and_h278_bestv2/"')
-                buildConfigField('String','API_KEY','"7d779c1e7a202d2aa4e20eb90a67548e"')
+    }
+    flavorDimensions 'api'
 
-            }
-            prod{
-                dimension  'api'
-                buildConfigField('String','IMAGE_BASE_W500','"https://image.tmdb.org/t/p/w500/"')
-                buildConfigField('String','IMAGE_BASE','"https://image.tmdb.org/t/p/w185_and_h278_bestv2/"')
-                buildConfigField('String','API_KEY','"7d779c1e7a202d2aa4e20eb90a67548e"')
-            }
+    productFlavors {
+        dev {
+            dimension 'api'
+            buildConfigField('String', 'BASE_URL', '"https://api.themoviedb.org/"')
+            buildConfigField('String', 'IMAGE_BASE_W500', '"https://image.tmdb.org/t/p/w500/"')
+            buildConfigField('String', 'IMAGE_BASE', '"https://image.tmdb.org/t/p/w185_and_h278_bestv2/"')
+            buildConfigField('String', 'API_KEY', '"7d779c1e7a202d2aa4e20eb90a67548e"')
+        }
+        pilot {
+            dimension 'api'
+            buildConfigField('String', 'IMAGE_BASE_W500', '"https://image.tmdb.org/t/p/w500/"')
+            buildConfigField('String', 'IMAGE_BASE', '"https://image.tmdb.org/t/p/w185_and_h278_bestv2/"')
+            buildConfigField('String', 'API_KEY', '"7d779c1e7a202d2aa4e20eb90a67548e"')
+
+        }
+        prod {
+            dimension 'api'
+            buildConfigField('String', 'IMAGE_BASE_W500', '"https://image.tmdb.org/t/p/w500/"')
+            buildConfigField('String', 'IMAGE_BASE', '"https://image.tmdb.org/t/p/w185_and_h278_bestv2/"')
+            buildConfigField('String', 'API_KEY', '"7d779c1e7a202d2aa4e20eb90a67548e"')
         }
     }
 
@@ -80,8 +81,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
-        viewBinding  true
+    buildFeatures {
+        viewBinding true
         dataBinding true
     }
 }
@@ -118,7 +119,7 @@ dependencies {
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
-    
+
 
     // Activity and fragment ktx
     implementation("androidx.fragment:fragment-ktx:1.4.1")

@@ -13,7 +13,6 @@
         android:background="#040608"
         android:orientation="vertical">
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcViewAllMovies"
             android:layout_width="match_parent"

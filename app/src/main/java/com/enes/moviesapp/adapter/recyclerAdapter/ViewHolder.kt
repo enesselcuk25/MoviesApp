@@ -11,11 +11,9 @@ class ViewHolder(private val binding: ItemAllmoviesBinding):RecyclerView.ViewHol
         moviesList: MoviesList,
         moviesClick: (MoviesList,View) -> Unit
     ) {
-
         binding.movieList = moviesList
         binding.root.setOnClickListener {
             moviesClick.invoke(moviesList,it)
         }
-
     }
 }

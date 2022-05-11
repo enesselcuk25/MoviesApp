@@ -2,6 +2,7 @@ package com.enes.moviesapp.ui.popular
 
 import android.os.Bundle
 import androidx.core.os.bundleOf
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,7 +18,7 @@ class PopularFragment : BaseFragment<FragmentPopulerBinding>() {
 
     override fun getViewBinding() = FragmentPopulerBinding.inflate(layoutInflater)
 
-    private val viewModel: ViewModelPopular by viewModels()
+    private val viewModel: ViewModelPopular by activityViewModels()
     private lateinit var rcAdapter: RcAllMoviesAdapter
 
     override fun rcView() {
@@ -34,7 +35,7 @@ class PopularFragment : BaseFragment<FragmentPopulerBinding>() {
 
     override fun setObsever() {
         viewModel.liveMovieList.observe(viewLifecycleOwner, { moviesList ->
-            rcAdapter.moviesList = moviesList
+            rcAdapter.submitList(moviesList)
         })
         viewModel.loading.observe(viewLifecycleOwner,{
             MainActivity.mainActivity.show(it)

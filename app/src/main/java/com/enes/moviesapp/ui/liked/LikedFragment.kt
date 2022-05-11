@@ -1,6 +1,7 @@
 package com.enes.moviesapp.ui.liked
 
 import androidx.core.os.bundleOf
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,11 +16,11 @@ class LikedFragment : BaseFragment<FragmentLikedBinding>() {
 
     override fun getViewBinding() = FragmentLikedBinding.inflate(layoutInflater)
     private lateinit var rcAdapter: RecyLikedAdapter
-    private val viewModel: ViewModelLiked by viewModels()
+    private val viewModel: ViewModelLiked by activityViewModels()
 
     override fun rcView() {
         rcAdapter = RecyLikedAdapter()
-        rcAdapter.onCLik { movieFavoriteEntity, view ->
+        rcAdapter.onCLickItem { movieFavoriteEntity, view ->
             val bundle = bundleOf("moviesId" to movieFavoriteEntity.id)
             view.findNavController().navigate(R.id.detailFragment, bundle)
 
@@ -32,7 +33,7 @@ class LikedFragment : BaseFragment<FragmentLikedBinding>() {
 
     override fun setObsever() {
         viewModel.moviesLiveData.observe(viewLifecycleOwner, {
-            rcAdapter.movieList = it
+            rcAdapter.submitList(it)
         })
     }
 
@@ -40,29 +41,6 @@ class LikedFragment : BaseFragment<FragmentLikedBinding>() {
         super.onStart()
         viewModel.getFavorite()
     }
-
-//    private fun swipedDelete() {
-//        object : ItemTouchHelper.SimpleCallback(0,
-//            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
-//        ){
-//            override fun onMove(
-//                recyclerView: RecyclerView,
-//                viewHolder: RecyclerView.ViewHolder,
-//                target: RecyclerView.ViewHolder
-//            ): Boolean {
-//                return false
-//            }
-//
-//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//
-//                rcAdapter.getMovieAt(viewHolder.adapterPosition)?.let { viewModel.deleteMovie() }
-//
-//               }
-//            }
-//
-//        }
-//
-//    }
 
 
 }

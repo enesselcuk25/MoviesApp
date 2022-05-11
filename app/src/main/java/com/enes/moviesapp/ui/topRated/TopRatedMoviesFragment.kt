@@ -2,6 +2,7 @@ package com.enes.moviesapp.ui.topRated
 
 import android.os.Bundle
 import androidx.core.os.bundleOf
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -18,7 +19,8 @@ class TopRatedMoviesFragment : BaseFragment<FragmentTopMoviesBinding>() {
     override fun getViewBinding() = FragmentTopMoviesBinding.inflate(layoutInflater)
 
     private lateinit var rcAdapter: RcAllMoviesAdapter
-    private val moviesViewModel: ViewModelTopMovies by viewModels()
+    private val moviesViewModel: ViewModelTopMovies by activityViewModels()
+
 
     override fun rcView() {
         rcAdapter = RcAllMoviesAdapter()
@@ -35,7 +37,8 @@ class TopRatedMoviesFragment : BaseFragment<FragmentTopMoviesBinding>() {
 
     override fun setObsever() {
         moviesViewModel.liveMoviesList.observe(viewLifecycleOwner, { moviesList ->
-            rcAdapter.moviesList = moviesList
+            rcAdapter.submitList(moviesList)
+
         })
 
         moviesViewModel.loading.observe(viewLifecycleOwner, {

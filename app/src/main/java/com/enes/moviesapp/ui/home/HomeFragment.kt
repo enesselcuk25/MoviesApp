@@ -3,6 +3,7 @@ package com.enes.moviesapp.ui.home
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
@@ -23,7 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun getViewBinding() = FragmentHomeBinding.inflate(layoutInflater)
-    private val popularViewModel: ViewModelPopular by viewModels()
+    private val popularViewModel: ViewModelPopular by activityViewModels()
     private lateinit var rcPagerAdapter: SlideViewPagerAdapter
 
 

@@ -2,6 +2,7 @@ package com.enes.moviesapp.ui.upComing
 
 import android.os.Bundle
 import androidx.core.os.bundleOf
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -16,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class UpComingFragment : BaseFragment<FragmentUpComingBinding>() {
     override fun getViewBinding() = FragmentUpComingBinding.inflate(layoutInflater)
 
-    private val viewModel: ViewModelUpComing by viewModels()
+    private val viewModel: ViewModelUpComing by activityViewModels()
    private lateinit var rcAdapter: RcAllMoviesAdapter
 
     override fun rcView() {
@@ -34,7 +35,7 @@ class UpComingFragment : BaseFragment<FragmentUpComingBinding>() {
 
     override fun setObsever() {
         viewModel.liveMoviesList.observe(viewLifecycleOwner, { moviesList ->
-            rcAdapter.moviesList = moviesList
+            rcAdapter.submitList(moviesList)
         })
 
         viewModel.loading.observe(viewLifecycleOwner, {

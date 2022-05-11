@@ -1,6 +1,7 @@
 package com.enes.moviesapp.ui.detail
 
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.enes.moviesapp.R
 import com.enes.moviesapp.base.BaseFragment
@@ -13,7 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     override fun getViewBinding() = FragmentDetailBinding.inflate(layoutInflater)
 
-    private val viewModelDetail: ViewModelDetail by viewModels()
+    private val viewModelDetail: ViewModelDetail by activityViewModels()
     private var isLiked = false
 
     override fun rcView() {

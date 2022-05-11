@@ -7,6 +7,10 @@
         <variable
             name="movieList"
             type="com.enes.moviesapp.data.remote.model.MoviesList" />
+        
+<!--        <variable-->
+<!--            name="onCLick"-->
+<!--            type="" />-->
 
     </data>
 

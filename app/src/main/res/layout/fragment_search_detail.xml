@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="resultDetail"
+            type="com.enes.moviesapp.ui.search.searchDetail.SearchViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line_image_search_detail"
+        android:clipToPadding="false"
+
+        android:paddingBottom="16dp">
+
+        <LinearLayout
+            android:id="@+id/linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@drawable/line_image2"
+                android:contentDescription="@string/image_movie"
+                android:scaleType="centerCrop"
+                app:movieSearchImage="@{resultDetail.search[0].poster_path}"
+                tools:src="@drawable/ic_launcher_background" />
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="150dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textVData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_lightt"
+                    android:text="@{resultDetail.search[0].release_date}"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:text="20/1/25" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="30dp"
+                    android:contentDescription="@string/star_image"
+                    android:maxWidth="20dp"
+                    android:maxHeight="20dp"
+                    android:src="@drawable/ic_baseline_star_24" />
+
+                <TextView
+                    android:id="@+id/textVAverage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/montserrat_lightt"
+                    android:text="@{Double.toString(resultDetail.search[0].vote_average)}"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:text="8.5" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textVTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:maxWidth="370dp"
+                    android:text="@{resultDetail.search[0].title}"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    tools:text="title" />
+
+                <TextView
+                    android:id="@+id/textVOverview"
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/montserrat_lightt"
+                    android:maxWidth="320dp"
+                    android:text="@{resultDetail.search[0].overview}"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:text="overview" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

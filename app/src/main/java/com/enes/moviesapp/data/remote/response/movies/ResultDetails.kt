@@ -1,6 +1,9 @@
 package com.enes.moviesapp.data.remote.response.movies
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class ResultDetails(
     val id: Int,
     val adult: Boolean,
@@ -16,4 +19,4 @@ data class ResultDetails(
     val video: Boolean,
     val vote_average: Double,
     val vote_count: Long
-)
+):Parcelable

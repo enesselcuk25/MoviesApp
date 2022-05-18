@@ -3,7 +3,6 @@ package com.enes.moviesapp.ui
 import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         lateinit var mainActivity: MainActivity
     }
 
-    fun show(visibility:Boolean){
-        binding.progresBar.visibility = if(visibility) View.VISIBLE else View.GONE
-    }
+//    fun show(visibility:Boolean){
+//        binding.progresBar.visibility = if(visibility) View.VISIBLE else View.GONE
+//    }
 }

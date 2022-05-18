@@ -3,14 +3,12 @@ package com.enes.moviesapp.ui.topRated
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.enes.moviesapp.R
 import com.enes.moviesapp.adapter.recyclerAdapter.RcAllMoviesAdapter
 import com.enes.moviesapp.base.BaseFragment
 import com.enes.moviesapp.databinding.FragmentTopMoviesBinding
-import com.enes.moviesapp.ui.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,7 +40,7 @@ class TopRatedMoviesFragment : BaseFragment<FragmentTopMoviesBinding>() {
         })
 
         moviesViewModel.loading.observe(viewLifecycleOwner, {
-            MainActivity.mainActivity.show(it)
+            moviesViewModel.progresBar(it)
         })
     }
 

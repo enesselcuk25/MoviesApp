@@ -2,17 +2,16 @@ package com.enes.moviesapp.ui.detail
 
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import com.enes.moviesapp.R
 import com.enes.moviesapp.base.BaseFragment
 import com.enes.moviesapp.databinding.FragmentDetailBinding
-import com.enes.moviesapp.ui.MainActivity.Companion.mainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     override fun getViewBinding() = FragmentDetailBinding.inflate(layoutInflater)
+
 
     private val viewModelDetail: ViewModelDetail by activityViewModels()
     private var isLiked = false
@@ -49,9 +48,11 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
         }
 
-        viewModelDetail.loading.observe(viewLifecycleOwner, {
-            mainActivity.show(it)
-        })
+//        viewModelDetail.loading.observe(viewLifecycleOwner, {
+//            viewModelDetail.progresBar(it)
+//        })
+
+
     }
 
     override fun setObsever() {
@@ -61,4 +62,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             }
         })
     }
+
+
 }

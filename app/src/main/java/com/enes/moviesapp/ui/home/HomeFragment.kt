@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.enes.moviesapp.R
 import com.enes.moviesapp.adapter.viewPagerAdapter.RcViewPager
@@ -15,6 +16,7 @@ import com.enes.moviesapp.databinding.FragmentHomeBinding
 import com.enes.moviesapp.ui.nowPlaying.NowPLayingFragment
 import com.enes.moviesapp.ui.popular.PopularFragment
 import com.enes.moviesapp.ui.popular.ViewModelPopular
+import com.enes.moviesapp.ui.search.SearchFragment
 import com.enes.moviesapp.ui.topRated.TopRatedMoviesFragment
 import com.enes.moviesapp.ui.upComing.UpComingFragment
 import com.google.android.material.tabs.TabLayoutMediator
@@ -42,7 +44,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         val adapter = RcViewPager(requireActivity(), fragmentArray)
 
+        binding.onClick = this@HomeFragment
+
+
+
+
         binding.apply {
+
+
             pager.adapter = adapter
             TabLayoutMediator(tabLayout, pager) { tab, position ->
 
@@ -93,6 +102,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }
             rcPagerAdapter.updateMovieList(movieList.take(addRandom))
         })
+    }
+
+    fun click() {
+        binding.imageSearch.setOnClickListener {
+            findNavController().navigate(R.id.SearchFragment)
+        }
+
     }
 
 }

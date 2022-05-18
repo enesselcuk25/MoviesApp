@@ -2,7 +2,7 @@ package com.enes.moviesapp.adapter.likedAdapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.enes.moviesapp.data.local.entity.MovieFavoriteEntity
-import java.util.*
+
 
 val BaseDiffUtil = object : DiffUtil.ItemCallback<MovieFavoriteEntity>() {
     override fun areItemsTheSame(

@@ -27,6 +27,14 @@ class ViewModelUpComing @Inject constructor
     val liveMoviesList: LiveData<List<MoviesList>>
         get() = mutableMoviesList
 
+    private val _progressBar: MutableLiveData<Boolean> = MutableLiveData()
+    val progressBar: LiveData<Boolean> = _progressBar
+
+
+    fun progresBar(visibility: Boolean) {
+        _progressBar.postValue(visibility)
+    }
+
     var loading = MutableLiveData(false)
     var error = MutableLiveData("")
 

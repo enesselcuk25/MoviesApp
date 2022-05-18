@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="detailMovie"
             type="com.enes.moviesapp.data.remote.model.MovieDetailList" />
@@ -26,12 +27,12 @@
 
             <ImageView
                 android:id="@+id/imageView"
+                movieDetailImage="@{detailMovie.poster_path}"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:background="@drawable/line_image2"
                 android:contentDescription="@string/image_movie"
                 android:scaleType="centerCrop"
-                movieDetailImage="@{detailMovie.poster_path}"
                 tools:src="@drawable/ic_launcher_background" />
 
             <ImageView
@@ -41,9 +42,9 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_baseline_favorite_24"
                 android:contentDescription="@string/image_likeMovies"
-                android:scaleType="fitStart" />
+                android:scaleType="fitStart"
+                android:src="@drawable/ic_baseline_favorite_24" />
 
             <LinearLayout
                 android:layout_width="180dp"
@@ -57,9 +58,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_lightt"
+                    android:text="@{detailMovie.release_date}"
                     android:textColor="@color/white"
                     android:textSize="15sp"
-                    android:text="@{detailMovie.release_date}"
                     tools:text="20/1/25" />
 
                 <ImageView
@@ -77,9 +78,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:fontFamily="@font/montserrat_lightt"
+                    android:text="@{Double.toString(detailMovie.vote_average)}"
                     android:textColor="@color/white"
                     android:textSize="15sp"
-                    android:text="@{Double.toString(detailMovie.vote_average)}"
                     tools:text="8.5" />
 
             </LinearLayout>
@@ -96,10 +97,10 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:fontFamily="@font/montserrat_bold"
+                    android:text="@{detailMovie.title}"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="25sp"
-                    android:text="@{detailMovie.title}"
                     tools:text="title" />
 
                 <TextView
@@ -111,9 +112,9 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/montserrat_lightt"
                     android:maxWidth="320dp"
+                    android:text="@{detailMovie.overview}"
                     android:textColor="@color/white"
                     android:textSize="15sp"
-                    android:text="@{detailMovie.overview}"
                     tools:text="overview" />
 
             </LinearLayout>

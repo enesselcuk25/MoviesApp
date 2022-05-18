@@ -35,7 +35,9 @@
         android:id="@+id/detailFragment"
         android:name="com.enes.moviesapp.ui.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail">
+
+    </fragment>
     <fragment
         android:id="@+id/likedFragment"
         android:name="com.enes.moviesapp.ui.liked.LikedFragment"
@@ -45,11 +47,58 @@
         android:id="@+id/splashFragment"
         android:name="com.enes.moviesapp.ui.splash.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/HomeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/SearchFragment"
+        android:name="com.enes.moviesapp.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/action_SearchFragment_to_searchDetailFragment"
+            app:destination="@id/searchDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/searchDetailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="com.enes.moviesapp.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_HomeFragment_to_SearchFragment"
+            app:destination="@id/SearchFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/SearchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <dialog
+        android:id="@+id/searchDetailFragment"
+        android:name="com.enes.moviesapp.ui.search.searchDetail.SearchDetailFragment"
+        android:label="SearchDetailFragment"
+        tools:layout="@layout/fragment_search_detail">
+        <argument
+            android:name="SearchDetailData"
+            app:argType="com.enes.moviesapp.data.remote.response.movies.ResultDetails" />
+    </dialog>
 
 
 </navigation>

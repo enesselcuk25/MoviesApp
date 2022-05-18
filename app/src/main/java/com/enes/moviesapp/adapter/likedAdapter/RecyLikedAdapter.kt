@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.enes.moviesapp.R
 import com.enes.moviesapp.data.local.entity.MovieFavoriteEntity
 

@@ -2,7 +2,6 @@ package com.enes.moviesapp.ui.liked
 
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.enes.moviesapp.R

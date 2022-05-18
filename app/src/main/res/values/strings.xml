@@ -16,6 +16,7 @@
     <string name="liked">Liked</string>
     <string name="pagerslidemovies">pagerSlideMovies</string>
     <string name="search">Search</string>
+    <string name="image_search_icon">image search icon</string>
 
 
 </resources>

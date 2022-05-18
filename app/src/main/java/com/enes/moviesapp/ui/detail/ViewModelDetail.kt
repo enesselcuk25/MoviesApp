@@ -17,17 +17,26 @@ class ViewModelDetail @Inject constructor(private val moviesRepository: MoviesRe
     BaseViewModel() {
 
     private val moviesMutableLiveData: MutableLiveData<MovieDetailList> = MutableLiveData()
-    val liveMovies:LiveData<MovieDetailList>
-          get()=moviesMutableLiveData
+    val liveMovies: LiveData<MovieDetailList>
+        get() = moviesMutableLiveData
+
+
+//    private val _progressBar: MutableLiveData<Boolean> = MutableLiveData()
+//    val progressBar: LiveData<Boolean> = _progressBar
+//
+//
+//    fun progresBar(visibility: Boolean) {
+//        _progressBar.postValue(visibility)
+//    }
 
     var loading = MutableLiveData(false)
     private var error = MutableLiveData("")
 
-    fun fetchMoviesData(id:Int?){
+    fun fetchMoviesData(id: Int?) {
         viewModelScope.launch {
             val result = moviesRepository.getMoviesInfo(id)
             loading.value = true
-            when(result){
+            when (result) {
                 is Resource.Success -> {
                     result.data?.let { movieList ->
                         moviesMutableLiveData.value = MovieDetailList(
@@ -52,7 +61,7 @@ class ViewModelDetail @Inject constructor(private val moviesRepository: MoviesRe
         }
     }
 
-    fun addMoviesFavorite(){
+    fun addMoviesFavorite() {
         moviesMutableLiveData.value?.let { moviesDetail ->
             viewModelScope.launch {
                 moviesRepository.insertMovies(MovieFavoriteEntity(
@@ -68,13 +77,13 @@ class ViewModelDetail @Inject constructor(private val moviesRepository: MoviesRe
         }
     }
 
-    fun getFavorite(id: Int?, isLiked: (Boolean) ->Unit){
+    fun getFavorite(id: Int?, isLiked: (Boolean) -> Unit) {
         viewModelScope.launch {
             isLiked.invoke(moviesRepository.isMoviesFavorite(id))
         }
     }
 
-    fun deleteFavori(id:Int?) {
+    fun deleteFavori(id: Int?) {
         viewModelScope.launch {
             moviesRepository.deleteFavorite(id)
         }

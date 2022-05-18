@@ -5,6 +5,11 @@
 
     <data>
 
+        <!--        <import type="android.view.View" />-->
+
+        <variable
+            name="onClick"
+            type="com.enes.moviesapp.ui.home.HomeFragment" />
     </data>
 
     <LinearLayout
@@ -14,10 +19,22 @@
         android:orientation="vertical"
         tools:context=".ui.home.HomeFragment">
 
+        <ImageView
+            android:id="@+id/image_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:contentDescription="@string/image_search_icon"
+            android:indeterminateTint="@color/white"
+            android:onClick="@{() -> onClick.click()}"
+            android:src="@drawable/ic_baseline_search" />
+
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -28,7 +45,6 @@
                     android:id="@+id/viewPagerSlide"
                     android:layout_width="match_parent"
                     android:layout_height="300dp" />
-
 
                 <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
                     android:id="@+id/worm_dots_indicator"
@@ -60,10 +76,6 @@
                 </androidx.viewpager2.widget.ViewPager2>
 
             </LinearLayout>
-
-
         </androidx.core.widget.NestedScrollView>
-
-
     </LinearLayout>
 </layout>

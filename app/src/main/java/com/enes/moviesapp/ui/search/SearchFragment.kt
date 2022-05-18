@@ -87,7 +87,7 @@ class SearchFragment : Fragment() {
                     }
                 }
                 is Resource.Error -> {
-                    Toast.makeText(requireContext(), "OOPS", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "OOPS ", Toast.LENGTH_SHORT).show()
                 }
             }
         })

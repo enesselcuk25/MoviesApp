@@ -2,6 +2,7 @@ package com.enes.moviesapp.ui.search
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
@@ -85,7 +86,9 @@ class SearchFragment : Fragment() {
                         }
                     }
                 }
-                else -> {}
+                is Resource.Error -> {
+                    Toast.makeText(requireContext(), "OOPS", Toast.LENGTH_SHORT).show()
+                }
             }
         })
     }
